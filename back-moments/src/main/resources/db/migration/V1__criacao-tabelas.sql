@@ -3,7 +3,7 @@ CREATE TABLE moment
     id         BIGINT NOT NULL AUTO_INCREMENT,
     title      VARCHAR(30),
     description VARCHAR(120),
-    image      VARCHAR,
+    image      BLOB,
     created_at  TIMESTAMP WITH TIME ZONE,
     updated_at TIMESTAMP WITH TIME ZONE,
 

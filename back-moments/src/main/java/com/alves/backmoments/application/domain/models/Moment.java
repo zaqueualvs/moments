@@ -10,7 +10,7 @@ public class Moment {
     private Long id;
     private String title;
     private String description;
-    private String image;
+    private byte[] image;
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
     private Set<Comment> comments = new HashSet<>();
@@ -18,7 +18,7 @@ public class Moment {
     public Moment() {
     }
 
-    public Moment(Long id, String title, String description, String image, OffsetDateTime createdAt, OffsetDateTime updatedAt, Set<Comment> comments) {
+    public Moment(Long id, String title, String description, byte[] image, OffsetDateTime createdAt, OffsetDateTime updatedAt, Set<Comment> comments) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -52,11 +52,11 @@ public class Moment {
         this.description = description;
     }
 
-    public String getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 

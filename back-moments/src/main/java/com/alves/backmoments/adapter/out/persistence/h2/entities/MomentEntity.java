@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.OffsetDateTime;
 import java.util.HashSet;
@@ -22,7 +23,7 @@ public class MomentEntity {
     private Long id;
     private String title;
     private String description;
-    private String image;
+    private MultipartFile image;
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
     @OneToMany
