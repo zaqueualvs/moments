@@ -8,7 +8,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface CommentPersistenceMapper {
 
-    Comment toDomain(CommentEntity commentEntity, @Context CycleAvoidingMappingContext context);
+    Comment toDomain(CommentEntity commentEntity);
 
-    CommentEntity toEntity(Comment comment, @Context CycleAvoidingMappingContext context);
+    CommentEntity toEntity(Comment comment);
 }

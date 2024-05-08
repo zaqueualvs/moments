@@ -2,7 +2,6 @@ package com.alves.backmoments.adapter.out.persistence.h2.adapters.comment;
 
 import com.alves.backmoments.adapter.out.persistence.h2.entities.CommentEntity;
 import com.alves.backmoments.adapter.out.persistence.h2.mappers.CommentPersistenceMapper;
-import com.alves.backmoments.adapter.out.persistence.h2.mappers.CycleAvoidingMappingContext;
 import com.alves.backmoments.adapter.out.persistence.h2.repositories.CommentRepository;
 import com.alves.backmoments.application.domain.models.Comment;
 import com.alves.backmoments.application.ports.out.comment.SaveCommentPort;
@@ -18,9 +17,9 @@ public class SaveCommentAdapter implements SaveCommentPort {
 
     @Override
     public Comment save(Comment comment) {
-        CommentEntity commentEntity = commentPersistenceMapper.toEntity(comment, new CycleAvoidingMappingContext());
+        CommentEntity commentEntity = commentPersistenceMapper.toEntity(comment);
         commentEntity = commentRepository.save(commentEntity);
-        comment = commentPersistenceMapper.toDomain(commentEntity, new CycleAvoidingMappingContext());
+        comment = commentPersistenceMapper.toDomain(commentEntity);
         return comment;
     }
 }

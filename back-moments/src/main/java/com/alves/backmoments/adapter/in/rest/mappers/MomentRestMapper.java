@@ -5,7 +5,6 @@ import com.alves.backmoments.adapter.in.rest.data.response.MomentResponse;
 import com.alves.backmoments.application.domain.models.Moment;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 
 import java.io.IOException;
 

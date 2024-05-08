@@ -13,19 +13,17 @@ public class Moment {
     private byte[] image;
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
-    private Set<Comment> comments = new HashSet<>();
 
     public Moment() {
     }
 
-    public Moment(Long id, String title, String description, byte[] image, OffsetDateTime createdAt, OffsetDateTime updatedAt, Set<Comment> comments) {
+    public Moment(Long id, String title, String description, byte[] image, OffsetDateTime createdAt, OffsetDateTime updatedAt) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.image = image;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-        this.comments = comments;
     }
 
     public Long getId() {
@@ -74,14 +72,6 @@ public class Moment {
 
     public void setUpdatedAt(OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-    public Set<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(Set<Comment> comments) {
-        this.comments = comments;
     }
 
     @Override

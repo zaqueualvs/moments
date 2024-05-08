@@ -27,9 +27,6 @@ public class MomentEntity {
     private byte[] image;
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
-    @OneToMany
-    private Set<CommentEntity> comments = new HashSet<>();
-
     @PrePersist
     private void prePersistence() {
         this.createdAt = OffsetDateTime.now();

@@ -1,6 +1,5 @@
 package com.alves.backmoments.adapter.out.persistence.h2.adapters.moment;
 
-import com.alves.backmoments.adapter.out.persistence.h2.mappers.CycleAvoidingMappingContext;
 import com.alves.backmoments.adapter.out.persistence.h2.mappers.MomentPersistenceMapper;
 import com.alves.backmoments.adapter.out.persistence.h2.repositories.MomentRepository;
 import com.alves.backmoments.application.domain.models.Moment;
@@ -21,7 +20,7 @@ public class FindAllMomentsAdapter implements FindAllMomentsPort {
     public List<Moment> findAll() {
         return momentRepository.findAll()
                 .stream()
-                .map(momentEntity -> momentPersistenceMapper.toDomain(momentEntity, new CycleAvoidingMappingContext()))
+                .map(momentPersistenceMapper::toDomain)
                 .toList();
     }
 }

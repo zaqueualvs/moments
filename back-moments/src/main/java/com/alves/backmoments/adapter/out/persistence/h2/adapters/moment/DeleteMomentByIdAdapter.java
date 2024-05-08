@@ -1,7 +1,6 @@
 package com.alves.backmoments.adapter.out.persistence.h2.adapters.moment;
 
 import com.alves.backmoments.adapter.out.persistence.h2.entities.MomentEntity;
-import com.alves.backmoments.adapter.out.persistence.h2.mappers.CycleAvoidingMappingContext;
 import com.alves.backmoments.adapter.out.persistence.h2.mappers.MomentPersistenceMapper;
 import com.alves.backmoments.adapter.out.persistence.h2.repositories.MomentRepository;
 import com.alves.backmoments.application.domain.models.Moment;
@@ -18,7 +17,7 @@ public class DeleteMomentByIdAdapter implements DeleteMomentPort {
 
     @Override
     public void delete(Moment moment) {
-        MomentEntity momentEntity = momentPersistenceMapper.toEntity(moment, new CycleAvoidingMappingContext());
+        MomentEntity momentEntity = momentPersistenceMapper.toEntity(moment);
         momentRepository.delete(momentEntity);
     }
 }

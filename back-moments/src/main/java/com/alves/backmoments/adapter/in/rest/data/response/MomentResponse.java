@@ -12,8 +12,7 @@ public record MomentResponse(
         String description,
         byte[] image,
         OffsetDateTime createdAt,
-        OffsetDateTime updatedAt,
-        Set<CommentResponse> comments
+        OffsetDateTime updatedAt
 ) {
 
 }
