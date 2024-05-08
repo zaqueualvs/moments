@@ -23,9 +23,21 @@ public class MomentEntity {
     private Long id;
     private String title;
     private String description;
-    private MultipartFile image;
+    @Lob
+    private byte[] image;
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
     @OneToMany
     private Set<CommentEntity> comments = new HashSet<>();
+
+    @PrePersist
+    private void prePersistence() {
+        this.createdAt = OffsetDateTime.now();
+        this.updatedAt = OffsetDateTime.now();
+    }
+
+    @PreUpdate
+    private void preUpdate() {
+        this.updatedAt = OffsetDateTime.now();
+    }
 }

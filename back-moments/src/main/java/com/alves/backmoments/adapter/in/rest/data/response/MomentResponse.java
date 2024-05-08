@@ -10,7 +10,7 @@ public record MomentResponse(
         Long id,
         String title,
         String description,
-        MultipartFile image,
+        byte[] image,
         OffsetDateTime createdAt,
         OffsetDateTime updatedAt,
         Set<CommentResponse> comments

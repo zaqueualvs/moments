@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -36,9 +37,14 @@ public class MomentController {
 
     @PostMapping
     public ResponseEntity<MomentResponse> save(@ModelAttribute @Valid MomentRequest momentRequest) {
-        Moment moment = momentRestMapper.toDomain(momentRequest);
-        moment = saveMomentUseCase.save(moment);
-        MomentResponse momentResponse = momentRestMapper.toResponse(moment);
+        MomentResponse momentResponse = null;
+        try {
+            Moment moment = momentRestMapper.toDomain(momentRequest);
+            moment = saveMomentUseCase.save(moment);
+            momentResponse = momentRestMapper.toResponse(moment);
+        }catch (IOException exception){
+            exception.printStackTrace();
+        }
         return ResponseEntity.status(HttpStatus.OK).body(momentResponse);
     }
 
