@@ -2,13 +2,16 @@ import {Component, OnInit} from '@angular/core';
 import {MomentService} from "../../../services/moment.service";
 import {Moment} from "../../../Moment";
 import {environment} from "../../../../environments/environment";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    NgIf,
+    RouterLink
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -31,6 +34,10 @@ export class HomeComponent implements OnInit{
       this.allMoments = items;
       this.moments = items;
     });
+  }
+
+  exibirImagem(image: any) {
+    return 'data:image/jpeg;base64,' + image;
   }
 
 }

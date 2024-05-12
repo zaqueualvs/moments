@@ -19,6 +19,7 @@ export class MomentService {
   }
 
   createMoment(formData: FormData): Observable<FormData>{
+    console.log(formData.get('image'))
     return this.http.post<FormData>(this.apiUrl, formData);
   }
 }
